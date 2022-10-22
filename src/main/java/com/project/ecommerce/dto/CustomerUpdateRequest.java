@@ -9,11 +9,10 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class CustomerUpdateRequest {
 
-	private Long customerId;
-	private String password;
+	private Long id;
 	private String phoneNumber;
-	private String email;
 	private Gender gender;
+	private Long addressId;
 	private String city;
 	private String addressDetails;
 	private String postCode;
