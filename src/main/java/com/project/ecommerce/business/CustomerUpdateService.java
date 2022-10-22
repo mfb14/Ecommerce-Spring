@@ -1,7 +1,8 @@
 package com.project.ecommerce.business;
 
-import java.util.Objects;
 
+
+import java.util.Objects;
 
 import org.springframework.stereotype.Service;
 
@@ -15,23 +16,29 @@ import com.project.ecommerce.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 
 @Service
-@RequiredArgsConstructor
 public class CustomerUpdateService {
 
 	CustomerRepository customerRepository;
 	AddressRepository addressRepository;
 	
-	public CustomerUpdateRequest updateCustomer(CustomerUpdateRequest request) {
+	public CustomerUpdateService(CustomerRepository customerRepository, AddressRepository addressRepository) {
+	
+		this.customerRepository = customerRepository;
+		this.addressRepository = addressRepository;
+	}
+	
+	public CustomerUpdateRequest updateCustomer(CustomerUpdateRequest request,Long id) {
 		
 		//After the GlobalException created this method will refactor.
-		Customer customer = customerRepository.findById(request.getId()).get();
+		Customer customer = customerRepository.findById(id).get();
 		
 		if(Objects.isNull(customer))
 			throw new CustomerIsNotExistException(("Customer is not Exist!"));
+		
 		customer.setPhoneNumber(getOrDefault(request.getPhoneNumber(), customer.getPhoneNumber()));
 		customer.setGender(getOrDefault(request.getGender(), customer.getGender()));
-		
-		Address ad = addressRepository.findById(request.getAddressId()).get();
+		Long adId = customer.getAddress().getId();
+		Address ad = addressRepository.findById(adId).get();
 		ad.setCity(getOrDefault(request.getCity(), ad.getCity()));
 		ad.setAddressDetails(getOrDefault(request.getAddressDetails(),ad.getAddressDetails()));
 		ad.setPostCode(getOrDefault(request.getPostCode(), ad.getPostCode()));
@@ -52,5 +59,7 @@ public class CustomerUpdateService {
 	private static <T> T getOrDefault(T data, T defaultValue) {
 		return data == null ?defaultValue:data;
 	}
+
+
 	
 }

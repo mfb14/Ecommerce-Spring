@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,13 +28,17 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("api/v1/customer")
-@Validated
-@RequiredArgsConstructor
+
 public class CustomerController {
 
 	CustomerSaveService customerSaveService;
 	CustomerUpdateService customerUpdateService;
 	
+	public CustomerController(CustomerSaveService customerSaveService, CustomerUpdateService customerUpdateService) {
+		
+		this.customerSaveService = customerSaveService;
+		this.customerUpdateService = customerUpdateService;
+	}
 	
 	
 	
@@ -44,12 +49,15 @@ public class CustomerController {
 		return new ResponseEntity<>(customerSaveService.saveCustomer(customerToSave),HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/update")
-	public ResponseEntity<?> updateCustomer(@RequestBody CustomerUpdateRequest request){
+	@PutMapping("/update/{id}")
+	public ResponseEntity<CustomerUpdateRequest> updateCustomer(@Valid @RequestBody CustomerUpdateRequest request,@PathVariable Long id){
 		
-		return ResponseEntity.ok(null);
+		return ResponseEntity.ok(customerUpdateService.updateCustomer(request,id));
+		
 	}
-	
 
+
+	
+	
 	
 }
