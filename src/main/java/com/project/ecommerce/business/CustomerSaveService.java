@@ -79,5 +79,13 @@ public class CustomerSaveService{
 
 
 
+	public void deleteCustomer(Long customerId) {
+		customerRepository.deleteById(customerId);
+		
+	}
+
+	
+
+
 	
 }

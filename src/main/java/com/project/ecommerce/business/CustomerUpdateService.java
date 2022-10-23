@@ -13,7 +13,6 @@ import com.project.ecommerce.model.Customer;
 import com.project.ecommerce.repository.AddressRepository;
 import com.project.ecommerce.repository.CustomerRepository;
 
-import lombok.RequiredArgsConstructor;
 
 @Service
 public class CustomerUpdateService {
