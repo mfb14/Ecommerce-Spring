@@ -1,4 +1,4 @@
-package com.project.ecommerce.business;
+package com.project.ecommerce.business.customer;
 
 
 
@@ -6,7 +6,7 @@ import java.util.Objects;
 
 import org.springframework.stereotype.Service;
 
-import com.project.ecommerce.dto.CustomerUpdateRequest;
+import com.project.ecommerce.dto.customer.CustomerUpdateRequest;
 import com.project.ecommerce.exception.CustomerIsNotExistException;
 import com.project.ecommerce.model.Address;
 import com.project.ecommerce.model.Customer;

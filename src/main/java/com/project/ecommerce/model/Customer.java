@@ -2,6 +2,8 @@ package com.project.ecommerce.model;
 
 
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +11,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -58,5 +61,9 @@ public class Customer extends BaseEntity{
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "address_id",referencedColumnName = "id")
 	private Address address;
+	
+	//Customer has more than one order.
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+	private List<Order> orders;
 	
 }

@@ -1,4 +1,4 @@
-package com.project.ecommerce.dto;
+package com.project.ecommerce.dto.customer;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.project.ecommerce.model.Customer;

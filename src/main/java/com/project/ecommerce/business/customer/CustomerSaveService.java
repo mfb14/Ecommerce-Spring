@@ -1,4 +1,4 @@
-package com.project.ecommerce.business;
+package com.project.ecommerce.business.customer;
 
 
 
@@ -6,9 +6,9 @@ package com.project.ecommerce.business;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.project.ecommerce.business.CustomerSaveService;
-import com.project.ecommerce.dto.CustomerSaveRequest;
-import com.project.ecommerce.dto.CustomerSaveResponse;
+import com.project.ecommerce.business.customer.CustomerSaveService;
+import com.project.ecommerce.dto.customer.CustomerSaveRequest;
+import com.project.ecommerce.dto.customer.CustomerSaveResponse;
 import com.project.ecommerce.model.Address;
 import com.project.ecommerce.model.Customer;
 import com.project.ecommerce.repository.AddressRepository;

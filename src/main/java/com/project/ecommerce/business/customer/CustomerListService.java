@@ -1,11 +1,11 @@
-package com.project.ecommerce.business;
+package com.project.ecommerce.business.customer;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.project.ecommerce.dto.CustomerListResponse;
+import com.project.ecommerce.dto.customer.CustomerListResponse;
 import com.project.ecommerce.repository.CustomerRepository;
 
 

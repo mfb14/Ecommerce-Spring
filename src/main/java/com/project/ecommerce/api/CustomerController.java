@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.ecommerce.business.CustomerListService;
-import com.project.ecommerce.business.CustomerSaveService;
-import com.project.ecommerce.business.CustomerUpdateService;
-import com.project.ecommerce.dto.CustomerListResponse;
-import com.project.ecommerce.dto.CustomerSaveRequest;
-import com.project.ecommerce.dto.CustomerSaveResponse;
-import com.project.ecommerce.dto.CustomerUpdateRequest;
+import com.project.ecommerce.business.customer.CustomerListService;
+import com.project.ecommerce.business.customer.CustomerSaveService;
+import com.project.ecommerce.business.customer.CustomerUpdateService;
+import com.project.ecommerce.dto.customer.CustomerListResponse;
+import com.project.ecommerce.dto.customer.CustomerSaveRequest;
+import com.project.ecommerce.dto.customer.CustomerSaveResponse;
+import com.project.ecommerce.dto.customer.CustomerUpdateRequest;
 
 
 

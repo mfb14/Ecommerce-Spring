@@ -1,18 +1,24 @@
-package com.project.ecommerce.dto;
+package com.project.ecommerce.dto.customer;
+
+
 
 import com.project.ecommerce.model.Gender;
 
+
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 @Data
 @SuperBuilder
-@NoArgsConstructor
-public class CustomerUpdateRequest {
+public class CustomerSaveResponse {
 
-	private Long id;
+	
+	private String firstName;
+	private String lastName;
+	private String password;
+	private String dateOfBirth;
 	private String phoneNumber;
+	private String email;
 	private Gender gender;
 	private String city;
 	private String addressDetails;
