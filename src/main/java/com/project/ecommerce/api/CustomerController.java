@@ -1,19 +1,25 @@
 package com.project.ecommerce.api;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.ecommerce.business.CustomerListService;
 import com.project.ecommerce.business.CustomerSaveService;
 import com.project.ecommerce.business.CustomerUpdateService;
+import com.project.ecommerce.dto.CustomerListResponse;
 import com.project.ecommerce.dto.CustomerSaveRequest;
 import com.project.ecommerce.dto.CustomerSaveResponse;
 import com.project.ecommerce.dto.CustomerUpdateRequest;
@@ -31,11 +37,14 @@ public class CustomerController {
 
 	CustomerSaveService customerSaveService;
 	CustomerUpdateService customerUpdateService;
+	CustomerListService customerListService;
 	
-	public CustomerController(CustomerSaveService customerSaveService, CustomerUpdateService customerUpdateService) {
+	public CustomerController(CustomerSaveService customerSaveService, CustomerUpdateService customerUpdateService,
+							  CustomerListService customerListService) {
 		
 		this.customerSaveService = customerSaveService;
 		this.customerUpdateService = customerUpdateService;
+		this.customerListService = customerListService;
 	}
 	
 	
@@ -62,5 +71,16 @@ public class CustomerController {
 	}
 	
 	
+	@GetMapping("/list/getAll")
+	public ResponseEntity<List<CustomerListResponse>> listAllCustomer(){
+		
+		return ResponseEntity.ok(customerListService.findAll());
+	}
+	
+	@GetMapping("/list/name")
+	public ResponseEntity<List<CustomerListResponse>> listByNameContaining(@RequestParam String firstName){
+		return new ResponseEntity<List<CustomerListResponse>>(customerListService.findByNameContaining(firstName),HttpStatus.OK);
+		
+	}
 	
 }
