@@ -55,6 +55,9 @@ public class Product{
 	@OneToMany(mappedBy = "product",fetch = FetchType.LAZY)
 	private List<Cart> carts;
 	
+	@ManyToOne
+	@JoinColumn(name = "supplier_id",nullable = false)
+	private Supplier supplier;
 	
 	
 	

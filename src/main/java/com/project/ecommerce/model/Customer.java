@@ -23,7 +23,6 @@ import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 
 import lombok.NoArgsConstructor;
 
@@ -32,7 +31,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 public class Customer extends BaseEntity{
 
 	@Column(name = "first_name")
