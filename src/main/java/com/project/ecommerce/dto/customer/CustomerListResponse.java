@@ -43,7 +43,7 @@ public class CustomerListResponse {
 								   .addressDetails(customer.getAddress().getAddressDetails())
 								   .postCode(customer.getAddress().getPostCode())
 								   .build();
-}
+	}
 	
 	
 }
