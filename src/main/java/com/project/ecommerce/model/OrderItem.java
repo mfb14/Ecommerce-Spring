@@ -1,6 +1,5 @@
 package com.project.ecommerce.model;
 
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -26,31 +25,27 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderItem {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@CreationTimestamp
 	@Column(name = "create_date_time")
 	private LocalDateTime createDateTime;
-	
+
 	@Column(name = "quantity")
 	private Integer quantity;
-	
+
 	@Column(name = "price")
 	private BigDecimal price;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "order_id",referencedColumnName = "id")
-	@Column(name = "order")
+	@JoinColumn(name = "order_id", referencedColumnName = "id")
 	private Order order;
-	
+
 	@OneToOne
-	@JoinColumn(name = "product_id",referencedColumnName = "id")
+	@JoinColumn(name = "product_id", referencedColumnName = "id")
 	private Product product;
 
-	
-	
-	
 }

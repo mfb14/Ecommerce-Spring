@@ -64,7 +64,7 @@ public class Customer extends BaseEntity{
 	private Address address;
 	
 	//Customer has more than one order.
-	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
 	private List<Order> orders;
 	
 }
