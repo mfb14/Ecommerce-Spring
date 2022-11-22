@@ -31,7 +31,8 @@ import com.project.ecommerce.dto.customer.CustomerUpdateRequest;
 
 
 @RestController
-@RequestMapping("/customers")
+@RequestMapping("api/v1/customer")
+
 public class CustomerController {
 
 	CustomerSaveService customerSaveService;

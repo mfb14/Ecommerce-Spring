@@ -12,10 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 /**
  * @author Mustafa Furkan BİLEN
@@ -26,11 +24,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "suppliers")
-@Builder
-@Setter
 public class Supplier extends BaseEntity {
 
-	@Column(name = "name",unique = true)
+	@Column(name = "name")
 	private String name;
 	@Column(name = "email")
 	private String email;
