@@ -23,6 +23,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Category {
 
+	
 	@JsonIgnore
 	@Id
 	private int id;
