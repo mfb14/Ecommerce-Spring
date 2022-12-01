@@ -6,6 +6,7 @@ package com.project.ecommerce.dto.product;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import com.project.ecommerce.model.Product;
 
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
@@ -25,4 +26,18 @@ public class ProductResponse {
 	private Long unitStock;
 	private String categoryName;
 	private String supplierName;
+	
+	
+	public static ProductResponse from (Product product) {
+		
+		return ProductResponse.builder()
+							  .name(product.getName())
+							  .description(product.getDescription())
+							  .price(product.getPrice())
+							  .unitStock(product.getUnitStock())
+							  .categoryName(product.getCategory().getName())
+							  .supplierName(product.getSupplier().getName())
+							  .createDateTime(product.getCreateDateTime())
+							  .build();
+	}
 }

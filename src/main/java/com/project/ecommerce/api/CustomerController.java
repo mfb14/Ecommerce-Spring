@@ -24,12 +24,6 @@ import com.project.ecommerce.dto.customer.CustomerSaveRequest;
 import com.project.ecommerce.dto.customer.CustomerSaveResponse;
 import com.project.ecommerce.dto.customer.CustomerUpdateRequest;
 
-
-
-
-
-
-
 @RestController
 @RequestMapping("/customers")
 public class CustomerController {
@@ -46,29 +40,21 @@ public class CustomerController {
 		this.customerListService = customerListService;
 	}
 	
-	
-	
 	@PostMapping(name = "/save")
 	public ResponseEntity<CustomerSaveResponse> saveCustomer(@Valid @RequestBody CustomerSaveRequest customerToSave){
-		
-		
 		return new ResponseEntity<>(customerSaveService.saveCustomer(customerToSave),HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/update/{id}")
 	public ResponseEntity<CustomerUpdateRequest> updateCustomer(@Valid @RequestBody CustomerUpdateRequest request,@PathVariable Long id){
-		
 		return ResponseEntity.ok(customerUpdateService.updateCustomer(request,id));
-		
 	}
-
-
+	
 	@DeleteMapping("/delete/{customerId}")
 	public ResponseEntity<Void> deleteCustomer(@PathVariable Long customerId){
 		customerSaveService.deleteCustomer(customerId);
 		return ResponseEntity.noContent().build();
 	}
-	
 	
 	@GetMapping("/list/getAll")
 	public ResponseEntity<List<CustomerListResponse>> listAllCustomer(){
@@ -79,7 +65,6 @@ public class CustomerController {
 	@GetMapping("/list/name")
 	public ResponseEntity<List<CustomerListResponse>> listByNameContaining(@RequestParam String firstName){
 		return new ResponseEntity<List<CustomerListResponse>>(customerListService.findByNameContaining(firstName),HttpStatus.OK);
-		
 	}
 	
 }

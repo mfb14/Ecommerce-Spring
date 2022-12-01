@@ -28,7 +28,7 @@ public class CategoryService {
 		return categoryReposityory.save(request);
 	}
 	
-	public Category findCategory(Integer id) {
+	public Category findById(Integer id) {
 		return categoryReposityory.findById(id).get();
 	}
 }

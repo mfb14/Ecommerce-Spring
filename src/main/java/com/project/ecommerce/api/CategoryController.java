@@ -22,9 +22,15 @@ import com.project.ecommerce.model.Category;
 @RequestMapping("/category")
 public class CategoryController {
 
-	@Autowired
 	CategoryService categoryService;
 	
+	
+	private CategoryController(CategoryService categoryService) {
+		super();
+		this.categoryService = categoryService;
+	}
+
+
 	@PostMapping
 	public ResponseEntity<Category> save(@RequestBody Category category){
 		

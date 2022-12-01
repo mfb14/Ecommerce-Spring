@@ -6,8 +6,10 @@ package com.project.ecommerce.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -38,7 +40,7 @@ public class Supplier extends BaseEntity {
 	private String password;
 	@Column(name = "phone_number")
 	private String phoneNumber;
-	@OneToMany(mappedBy = "supplier")
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "supplier")
 	private List<Product> products;
 	
 	

@@ -5,6 +5,7 @@ package com.project.ecommerce.dto.supplier;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.project.ecommerce.model.Supplier;
 
 import lombok.Builder;
 import lombok.Data;
@@ -22,4 +23,14 @@ public class SupplierResponse {
 	private String name;
 	private String email;	
 	private String phoneNumber;
+	
+	public static Supplier from(SupplierResponse supplierResponse) {
+		
+		return Supplier.builder()
+				       .name(supplierResponse.getName())
+				       .email(supplierResponse.getEmail())
+				       .phoneNumber(supplierResponse.getPhoneNumber())
+				       .build();
+				
+	}
 }

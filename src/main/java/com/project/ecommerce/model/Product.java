@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -58,7 +59,7 @@ public class Product{
 	private List<Cart> carts;
 	
 	@ManyToOne
-	@JoinColumn(name = "supplier_id",nullable = false)
+	@JoinColumn(name = "supplier_id")
 	private Supplier supplier;
 	
 	

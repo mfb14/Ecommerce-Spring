@@ -19,7 +19,7 @@ public class ProductSaveRequest {
 	private String description;
 	@NotBlank
 	private BigDecimal price;
-	private int unitsStock;
+	private long unitsStock;
 	@NotBlank
 	private int categoryId;
 	@NotBlank
