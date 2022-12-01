@@ -41,10 +41,12 @@ public class Product{
 	private String description;
 	@Column(name = "price")
 	private BigDecimal price;
-	@Column(name = "unit_stock")
+	@Column(name = "unit_stock",columnDefinition = "integer default 100")
 	private Long unitStock;
+	/*
 	@Column(name = "image_url")
 	private String imageUrl;
+	*/
 	
 	//Category has more than one product
 	@ManyToOne
