@@ -7,6 +7,7 @@ import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.webjars.NotFoundException;
 
 import com.project.ecommerce.dto.supplier.SupplierResponse;
 import com.project.ecommerce.dto.supplier.SupplierSaveRequest;
@@ -73,5 +74,15 @@ public class SupplierService {
 		return data == null ?defaultValue:data;
 	}
 	
+	public SupplierResponse findById(Long id) {
+		
+		Supplier supplier = supplierRepository.findById(id).get();
+		
+		return SupplierResponse.builder()
+							   .name(supplier.getName())
+							   .email(supplier.getEmail())
+							   .phoneNumber(supplier.getPhoneNumber())
+							   .build();
+	}
 	
 }
