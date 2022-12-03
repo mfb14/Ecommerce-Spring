@@ -73,15 +73,18 @@ public class SupplierService {
 		return data == null ?defaultValue:data;
 	}
 	
-	public SupplierResponse findById(Long id) {
-		
-		Supplier supplier = supplierRepository.findById(id).get();
-		
-		return SupplierResponse.builder()
-							   .name(supplier.getName())
-							   .email(supplier.getEmail())
-							   .phoneNumber(supplier.getPhoneNumber())
-							   .build();
+//	public SupplierResponse findById(Long id) {
+//		
+//		Supplier supplier = supplierRepository.findById(id).get();
+//		
+//		return SupplierResponse.builder()
+//							   .name(supplier.getName())
+//							   .email(supplier.getEmail())
+//							   .phoneNumber(supplier.getPhoneNumber())
+//							   .build();
+//	}
+	public Supplier findById(Long id) {
+		return supplierRepository.findById(id).get();
 	}
 	
 }

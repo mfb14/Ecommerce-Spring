@@ -58,7 +58,7 @@ public class Product{
 	@OneToMany(mappedBy = "product",fetch = FetchType.LAZY)
 	private List<Cart> carts;
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE},fetch = FetchType.LAZY)
 	@JoinColumn(name = "supplier_id")
 	private Supplier supplier;
 	

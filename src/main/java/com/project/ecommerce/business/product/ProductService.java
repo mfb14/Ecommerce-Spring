@@ -39,8 +39,8 @@ public class ProductService {
 	
 	public ProductResponse save(ProductSaveRequest request) {
 		
-		SupplierResponse supplierResponse = supplierService.findById(request.getSupplierId());
-		Supplier supplier = SupplierResponse.from(supplierResponse);
+		Supplier supplier = supplierService.findById(request.getSupplierId());
+		//Supplier supplier = SupplierResponse.from(supplierResponse);
 				
 		
 		Product productToSave = Product.builder()
@@ -56,7 +56,8 @@ public class ProductService {
 		
 		return ProductResponse.from(fromDb);
 									  
-	
+
+		
 	}
 	
 }

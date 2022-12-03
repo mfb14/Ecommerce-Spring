@@ -40,7 +40,7 @@ public class Supplier extends BaseEntity {
 	private String password;
 	@Column(name = "phone_number")
 	private String phoneNumber;
-	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "supplier")
+	@OneToMany(mappedBy = "supplier")
 	private List<Product> products;
 	
 	
